@@ -2,509 +2,504 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Makes the checklist work properly on phones and tablets -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Power of Positive Thinking - Daily Checklist</title>
+
+    <title>THE UK DAME | Positive Thinking</title>
+
     <style>
+        /* =========================================================
+           THE UK DAME MASTER CHECKLIST
+           Brand colours:
+           Navy     #0A192F
+           Hot Pink #E83E8C
+           Warm Gold #C9A227
+           Soft Cream #FFF8E7
+           ========================================================= */
+
         :root {
-            --primary-color: #4a6fa5;
-            --secondary-color: #166088;
-            --accent-color: #4fc3f7;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
-            --success-color: #28a745;
+            --navy: #0A192F;
+            --pink: #E83E8C;
+            --gold: #C9A227;
+            --cream: #FFF8E7;
+            --white: #FFFFFF;
+            --text: #172033;
+            --soft-navy: #24344D;
+            --border: #D9D0BE;
         }
-        
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: #f5f7fa;
             margin: 0;
-            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
         }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1, h2, h3 {
-            color: var(--secondary-color);
-        }
-        
-        h1 {
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        header {
+            background: var(--navy);
+            color: var(--white);
             text-align: center;
-            margin-bottom: 5px;
-            color: var(--primary-color);
+            padding: 32px 20px 28px;
+            border-bottom: 6px solid var(--pink);
         }
-        
-        h2 {
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-top: 30px;
+
+        .crown {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 8px;
+            display: block;
         }
-        
-        h3 {
-            margin-top: 20px;
-            color: var(--secondary-color);
+
+        .brand {
+            font-size: 19px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: var(--white);
+            margin-bottom: 14px;
         }
-        
+
+        .title {
+            font-size: 34px;
+            line-height: 1.15;
+            margin: 0;
+            color: var(--white);
+            font-weight: 700;
+        }
+
         .subtitle {
-            text-align: center;
-            font-style: italic;
-            margin-bottom: 30px;
-            color: var(--secondary-color);
+            margin: 12px auto 0;
+            font-size: 17px;
+            color: #F7EBD2;
+            max-width: 650px;
         }
-        
-        .section {
-            margin-bottom: 30px;
-            background-color: var(--light-color);
-            padding: 20px;
+
+        /* =========================================================
+           MAIN CONTENT
+           ========================================================= */
+
+        main {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 35px 20px 50px;
+        }
+
+        .intro {
+            background: var(--white);
+            border-left: 5px solid var(--gold);
+            padding: 22px 24px;
+            margin-bottom: 28px;
             border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(10, 25, 47, 0.06);
         }
-        
-        .checklist-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+
+        .intro p {
+            margin: 0;
+            font-size: 17px;
         }
-        
-        .checklist-item:hover {
-            background-color: rgba(79, 195, 247, 0.1);
-        }
-        
-        .checklist-item input[type="checkbox"] {
-            margin-right: 15px;
-            transform: scale(1.3);
-            cursor: pointer;
-        }
-        
-        .checklist-item label {
-            flex-grow: 1;
-            cursor: pointer;
-        }
-        
-        .checklist-item.completed {
-            text-decoration: line-through;
-            color: #6c757d;
-        }
-        
-        .progress-container {
-            margin: 30px 0;
-            background-color: #e9ecef;
+
+        /* =========================================================
+           CHECKLIST
+           ========================================================= */
+
+        .checklist {
+            background: rgba(255, 255, 255, 0.45);
             border-radius: 10px;
-            height: 20px;
-            overflow: hidden;
+            padding: 10px 20px;
+            border: 1px solid var(--border);
         }
-        
-        .progress-bar {
-            height: 100%;
-            background-color: var(--success-color);
-            width: 0%;
-            transition: width 0.5s ease;
+
+        .question {
             display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 10px;
-            color: white;
-            font-size: 12px;
-            font-weight: bold;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 19px 10px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
         }
-        
-        .progress-text {
-            text-align: center;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: var(--secondary-color);
-        }
-        
-        .reflection {
-            margin-top: 30px;
-        }
-        
-        .reflection h3 {
-            margin-bottom: 10px;
-        }
-        
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            min-height: 80px;
-            margin-bottom: 15px;
-            font-family: inherit;
-        }
-        
-        .celebration {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            background-color: var(--success-color);
-            color: white;
-            border-radius: 8px;
-            margin: 30px 0;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .celebration h2 {
-            color: white;
+
+        .question:last-child {
             border-bottom: none;
         }
-        
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        
-        button {
-            padding: 10px 20px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
+
+        .question input {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 27px;
+            height: 27px;
+            min-width: 27px;
+            border: 2px solid var(--navy);
             border-radius: 5px;
+            background: var(--white);
             cursor: pointer;
-            transition: background-color 0.3s;
+            position: relative;
+            margin-top: 1px;
         }
-        
+
+        .question input:checked {
+            background: var(--pink);
+            border-color: var(--pink);
+        }
+
+        .question input:checked::after {
+            content: "✓";
+            position: absolute;
+            color: var(--white);
+            font-size: 20px;
+            font-weight: bold;
+            left: 4px;
+            top: -2px;
+        }
+
+        .question label {
+            font-size: 18px;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .question input:checked + label {
+            color: #687080;
+            text-decoration: line-through;
+        }
+
+        /* =========================================================
+           FINAL MESSAGE
+           ========================================================= */
+
+        .closing {
+            text-align: center;
+            margin: 35px 0 25px;
+            padding: 25px;
+        }
+
+        .closing h2 {
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .closing p {
+            font-size: 17px;
+        }
+
+        .gold-line {
+            width: 70px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto 20px;
+        }
+
+        /* =========================================================
+           BUTTONS
+           ========================================================= */
+
+        .buttons {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        button {
+            border: none;
+            border-radius: 25px;
+            padding: 13px 24px;
+            margin: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .print-button {
+            background: var(--pink);
+            color: var(--white);
+        }
+
+        .reset-button {
+            background: var(--navy);
+            color: var(--white);
+        }
+
         button:hover {
-            background-color: var(--secondary-color);
+            opacity: 0.88;
+            transform: translateY(-1px);
         }
-        
-        .reset-btn {
-            background-color: #dc3545;
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 14px;
         }
-        
-        .reset-btn:hover {
-            background-color: #c82333;
+
+        footer .footer-brand {
+            color: var(--gold);
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 7px;
         }
-        
-        .instructions {
-            font-size: 0.9em;
-            color: #6c757d;
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px dashed #ced4da;
+
+        footer p {
+            margin: 5px 0;
         }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 25px 15px 23px;
             }
-            
-            .section {
-                padding: 15px;
+
+            .title {
+                font-size: 27px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            main {
+                padding: 25px 14px 40px;
+            }
+
+            .intro {
+                padding: 18px;
+            }
+
+            .question {
+                padding: 17px 5px;
+                gap: 12px;
+            }
+
+            .question label {
+                font-size: 17px;
+            }
+
+            .checklist {
+                padding: 5px 12px;
             }
         }
+
+        /* =========================================================
+           PRINT / SAVE AS PDF
+           ========================================================= */
+
+        @media print {
+
+            body {
+                background: white;
+            }
+
+            header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .buttons {
+                display: none;
+            }
+
+            footer {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .question input {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            main {
+                padding-top: 20px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>The Power of Positive Thinking</h1>
-        <p class="subtitle">Your Daily Practice Plan</p>
-        
-        <div class="progress-text">Daily Progress: <span id="progress-percent">0</span>%</div>
-        <div class="progress-container">
-            <div class="progress-bar" id="progress-bar">0%</div>
-        </div>
-        
-        <div class="celebration" id="celebration">
-            <h2>🎉 Congratulations! 🎉</h2>
-            <p>You've completed all your positive thinking practices for today!</p>
-            <p>Take a moment to appreciate your commitment to personal growth.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Morning Mindset</h2>
-            
-            <h3>Growth Mindset</h3>
-            <div class="checklist-item">
-                <input type="checkbox" id="item1" data-category="morning">
-                <label for="item1">I embraced a challenge instead of avoiding it</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item2" data-category="morning">
-                <label for="item2">I viewed a setback as feedback rather than failure</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item3" data-category="morning">
-                <label for="item3">I persisted through difficulty rather than giving up</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item4" data-category="morning">
-                <label for="item4">I sought or accepted constructive feedback</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item5" data-category="morning">
-                <label for="item5">I celebrated someone else's success without comparison</label>
-            </div>
-            
-            <h3>Self-Awareness</h3>
-            <div class="checklist-item">
-                <input type="checkbox" id="item6" data-category="morning">
-                <label for="item6">I reflected on my core values and how they guide my choices</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item7" data-category="morning">
-                <label for="item7">I identified a personal strength and leveraged it intentionally</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item8" data-category="morning">
-                <label for="item8">I acknowledged a limitation and considered how to work with it</label>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Daily Practice</h2>
-            
-            <h3>Skill Development</h3>
-            <div class="checklist-item">
-                <input type="checkbox" id="item9" data-category="daily">
-                <label for="item9">I dedicated focused time to developing a specific skill</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item10" data-category="daily">
-                <label for="item10">I stepped outside my comfort zone by trying something new</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item11" data-category="daily">
-                <label for="item11">I identified a specific area where I want to improve</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item12" data-category="daily">
-                <label for="item12">I applied deliberate practice (focused on weaknesses)</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item13" data-category="daily">
-                <label for="item13">I sought knowledge or training to enhance a capability</label>
-            </div>
-            
-            <h3>Barrier Removal</h3>
-            <div class="checklist-item">
-                <input type="checkbox" id="item14" data-category="daily">
-                <label for="item14">I identified a belief that's limiting my potential</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item15" data-category="daily">
-                <label for="item15">I challenged an assumption about what I'm capable of</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item16" data-category="daily">
-                <label for="item16">I took action despite fear or self-doubt</label>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Evening Reflection</h2>
-            
-            <div class="checklist-item">
-                <input type="checkbox" id="item17" data-category="evening">
-                <label for="item17">I established a boundary that protects my energy and focus</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item18" data-category="evening">
-                <label for="item18">I reduced or eliminated a distraction that prevents my best work</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item19" data-category="evening">
-                <label for="item19">I aligned my daily activities with my authentic interests</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item20" data-category="evening">
-                <label for="item20">I recognized an emotional pattern and its impact on my actions</label>
-            </div>
-            
-            <h3>Potential Expanders</h3>
-            <div class="checklist-item">
-                <input type="checkbox" id="item21" data-category="evening">
-                <label for="item21">I sought out a mentor or guide in an area I want to develop</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item22" data-category="evening">
-                <label for="item22">I created a specific goal that stretches my capabilities</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="item23" data-category="evening">
-                <label for="item23">I envisioned a future self that embodies my full potential</label>
-            </div>
-        </div>
-        
-        <div class="reflection">
-            <h2>Weekly Reflection</h2>
-            
-            <div class="section">
-                <h3>Rate your growth and development this week (1-10):</h3>
-                <input type="range" id="week-rating" min="1" max="10" step="1" style="width: 100%;">
-                <div style="display: flex; justify-content: space-between;">
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                    <span>4</span>
-                    <span>5</span>
-                    <span>6</span>
-                    <span>7</span>
-                    <span>8</span>
-                    <span>9</span>
-                    <span>10</span>
-                </div>
-                <p style="text-align: center; margin-top: 5px;">Rating: <span id="rating-value">5</span>/10</p>
-                
-                <h3>What new aspect of your potential did you discover this week?</h3>
-                <textarea id="potential-discovery" placeholder="Write your thoughts here..."></textarea>
-                
-                <h3>What barrier to your potential are you working to overcome?</h3>
-                <textarea id="potential-barrier" placeholder="Write your thoughts here..."></textarea>
-                
-                <h3>Which strength would you like to leverage more fully next week?</h3>
-                <textarea id="strength-next-week" placeholder="Write your thoughts here..."></textarea>
-            </div>
-        </div>
-        
-        <div class="buttons">
-            <button id="save-btn">Save Progress</button>
-            <button id="reset-btn" class="reset-btn">Reset Today's Checklist</button>
-        </div>
-        
-        <div class="instructions">
-            <h3>How to Use This Checklist:</h3>
-            <ol>
-                <li><strong>Focus on Process</strong>: Concentrate on the development journey rather than just outcomes.</li>
-                <li><strong>Balance Areas</strong>: Work on items across all categories for holistic growth.</li>
-                <li><strong>Be Patient</strong>: Developing potential is a marathon, not a sprint.</li>
-                <li><strong>Personalize</strong>: Modify items to address your specific potential barriers and opportunities.</li>
-                <li><strong>Review Regularly</strong>: Use the reflection questions to guide your growth trajectory.</li>
-            </ol>
-            <p><em>Remember: Your potential isn't a fixed destination but an expanding frontier. Growth happens when you consistently challenge your current limitations while honoring your authentic self and values.</em></p>
-        </div>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header>
+
+    <!-- Gold crown icon -->
+    <svg class="crown" viewBox="0 0 100 100"
+         xmlns="http://www.w3.org/2000/svg"
+         aria-label="The UK Dame crown">
+
+        <path
+            d="M15 72 L8 30 L32 48 L50 18 L68 48 L92 30 L85 72 Z"
+            fill="#C9A227"/>
+
+        <rect
+            x="15"
+            y="72"
+            width="70"
+            height="10"
+            rx="3"
+            fill="#C9A227"/>
+
+        <circle cx="8" cy="27" r="5" fill="#C9A227"/>
+        <circle cx="50" cy="15" r="5" fill="#C9A227"/>
+        <circle cx="92" cy="27" r="5" fill="#C9A227"/>
+
+    </svg>
+
+    <div class="brand">THE UK DAME</div>
+
+    <h1 class="title">POSITIVE THINKING</h1>
+
+    <div class="subtitle">
+        A simple checklist to shift your focus toward optimism and self-encouragement.
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load saved data
-            loadProgress();
-            
-            // Update progress when checkboxes change
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', updateProgress);
-            });
-            
-            // Update rating display
-            const ratingSlider = document.getElementById('week-rating');
-            const ratingValue = document.getElementById('rating-value');
-            ratingSlider.addEventListener('input', function() {
-                ratingValue.textContent = this.value;
-            });
-            
-            // Save button
-            document.getElementById('save-btn').addEventListener('click', saveProgress);
-            
-            // Reset button
-            document.getElementById('reset-btn').addEventListener('click', resetProgress);
-            
-            // Initial progress update
-            updateProgress();
+</header>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+     ========================================================= -->
+
+<main>
+
+    <div class="intro">
+        <p>
+            Shifting your perspective takes deliberate reflection. 
+            Use this checklist to pause, gently reframe your thinking, and focus on the good around you.
+        </p>
+    </div>
+
+    <!-- CHECKLIST QUESTIONS -->
+
+    <div class="checklist">
+
+        <div class="question">
+            <input type="checkbox" id="q1">
+            <label for="q1">
+                Have you noticed one good thing that happened today, no matter how small?
+            </label>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="q2">
+            <label for="q2">
+                Are you speaking to yourself with the same kindness you would offer a friend?
+            </label>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="q3">
+            <label for="q3">
+                Have you acknowledged a challenge today and looked for what it taught you?
+            </label>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="q4">
+            <label for="q4">
+                Did you pause to appreciate something in your surroundings right now?
+            </label>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="q5">
+            <label for="q5">
+                Have you allowed yourself to feel proud of an effort you made recently?
+            </label>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="q6">
+            <label for="q6">
+                Are you choosing to focus on what you can control rather than what you cannot?
+            </label>
+        </div>
+
+    </div>
+
+    <!-- CLOSING MESSAGE -->
+
+    <div class="closing">
+
+        <div class="gold-line"></div>
+
+        <h2>Your mindset shapes your experience.</h2>
+
+        <p>
+            Small shifts in daily thinking accumulate into lasting strength.
+        </p>
+
+    </div>
+
+    <!-- BUTTONS -->
+
+    <div class="buttons">
+
+        <button class="print-button" onclick="window.print()">
+            🖨 Print / Save as PDF
+        </button>
+
+        <button class="reset-button" onclick="resetChecklist()">
+            Reset Checklist
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div class="footer-brand">THE UK DAME</div>
+
+    <p>Making the Third Act count.</p>
+
+    <p>© 2026 The UK Dame</p>
+
+</footer>
+
+
+<!-- =========================================================
+     SIMPLE JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+    function resetChecklist() {
+
+        const boxes = document.querySelectorAll(
+            '.question input[type="checkbox"]'
+        );
+
+        boxes.forEach(function(box) {
+            box.checked = false;
         });
-        
-        function updateProgress() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            const checked = document.querySelectorAll('input[type="checkbox"]:checked');
-            const progress = (checked.length / checkboxes.length) * 100;
-            
-            const progressBar = document.getElementById('progress-bar');
-            const progressPercent = document.getElementById('progress-percent');
-            
-            progressBar.style.width = progress + '%';
-            progressBar.textContent = Math.round(progress) + '%';
-            progressPercent.textContent = Math.round(progress);
-            
-            // Update completed class on checklist items
-            checkboxes.forEach(checkbox => {
-                const item = checkbox.parentElement;
-                if (checkbox.checked) {
-                    item.classList.add('completed');
-                } else {
-                    item.classList.remove('completed');
-                }
-            });
-            
-            // Show celebration if all checked
-            if (checked.length === checkboxes.length) {
-                document.getElementById('celebration').style.display = 'block';
-            } else {
-                document.getElementById('celebration').style.display = 'none';
-            }
-        }
-        
-        function saveProgress() {
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            const checkboxStates = {};
-            
-            checkboxes.forEach(checkbox => {
-                checkboxStates[checkbox.id] = checkbox.checked;
-            });
-            
-            // Save checkbox states
-            localStorage.setItem('positiveThinkingChecklist', JSON.stringify(checkboxStates));
-            
-            // Save reflection data
-            localStorage.setItem('weekRating', document.getElementById('week-rating').value);
-            localStorage.setItem('potentialDiscovery', document.getElementById('potential-discovery').value);
-            localStorage.setItem('potentialBarrier', document.getElementById('potential-barrier').value);
-            localStorage.setItem('strengthNextWeek', document.getElementById('strength-next-week').value);
-            
-            alert('Progress saved! Your data will be here when you return.');
-        }
-        
-        function loadProgress() {
-            const savedData = localStorage.getItem('positiveThinkingChecklist');
-            if (savedData) {
-                const checkboxStates = JSON.parse(savedData);
-                
-                for (const id in checkboxStates) {
-                    const checkbox = document.getElementById(id);
-                    if (checkbox) {
-                        checkbox.checked = checkboxStates[id];
-                    }
-                }
-            }
-            
-            // Load reflection data
-            if (localStorage.getItem('weekRating')) {
-                document.getElementById('week-rating').value = localStorage.getItem('weekRating');
-                document.getElementById('rating-value').textContent = localStorage.getItem('weekRating');
-            }
-            
-            document.getElementById('potential-discovery').value = localStorage.getItem('potentialDiscovery') || '';
-            document.getElementById('potential-barrier').value = localStorage.getItem('potentialBarrier') || '';
-            document.getElementById('strength-next-week').value = localStorage.getItem('strengthNextWeek') || '';
-        }
-        
-        function resetProgress() {
-            if (confirm('Are you sure you want to reset today\'s checklist? Your reflection answers will be kept.')) {
-                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach(checkbox => {
-                    checkbox.checked = false;
-                });
-                
-                updateProgress();
-                saveProgress();
-            }
-        }
-    </script>
+
+    }
+
+</script>
+
 </body>
 </html>
